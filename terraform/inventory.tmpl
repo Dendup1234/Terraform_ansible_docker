@@ -1,0 +1,4 @@
+[all]
+%{ for idx, name in split(",", hosts) ~}
+${name} ansible_host=127.0.0.1 ansible_port=${split(",", ports)[idx]} ansible_user=${ssh_user} ansible_password=${ssh_pass}
+%{ endfor ~}
